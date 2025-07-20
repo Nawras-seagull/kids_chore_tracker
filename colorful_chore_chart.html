@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Chore Chart</title>
+    <link rel="stylesheet" href="styles.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="functions.js"></script>
+ 
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="resetAllBtn" style="position:absolute;top:20px;right:20px;background:#ff6b6b;color:white;border:none;border-radius:10px;padding:10px 22px;font-size:1em;font-family:'Fredoka One',cursive;font-weight:700;cursor:pointer;z-index:2;" onclick="resetAllData()">Reset All</button>
+            <h1>🌟 SUPER CHORE CHAMPIONS 🌟</h1>
+            <p>Weekly Adventure Chart for Asir, Mila & Ayham!</p>
+        </div>
+        
+        <div class="content">
+            <div class="chores-section">
+                <h2>🏆 CHORE MISSIONS</h2>
+                <div class="chores-grid">
+                    <div class="chore-header">Chore Adventure</div>
+                    <div class="chore-header">Points</div>
+                    <div class="chore-header">Assigned To</div>
+                    <div class="chore-header">Complete</div>
+
+                    <div class="chore-item">
+                        <span class="icon">🍽️</span>
+                        <span>Unload Dishwasher</span>
+                    </div>
+                    <div class="chore-points">4</div>
+                    <select class="chore-dropdown" id="chore-0">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(0, 4)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🧹</span>
+                        <span>Kitchen Floor</span>
+                    </div>
+                    <div class="chore-points">5</div>
+                    <select class="chore-dropdown" id="chore-1">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(1, 5)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🧽</span>
+                        <span>Kitchen Tops</span>
+                    </div>
+                    <div class="chore-points">7</div>
+                    <select class="chore-dropdown" id="chore-2">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(2, 7)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🍳</span>
+                        <span>Kitchen Stove</span>
+                    </div>
+                    <div class="chore-points">7</div>
+                    <select class="chore-dropdown" id="chore-3">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(3, 7)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">👕</span>
+                        <span>Collect Clothes</span>
+                    </div>
+                    <div class="chore-points">7</div>
+                    <select class="chore-dropdown" id="chore-4">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(4, 7)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">👚</span>
+                        <span>Put Out Clothes</span>
+                    </div>
+                    <div class="chore-points">3</div>
+                    <select class="chore-dropdown" id="chore-5">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(5, 3)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🛏️</span>
+                        <span>Kids’ Room Floor</span>
+                    </div>
+                    <div class="chore-points">5</div>
+                    <select class="chore-dropdown" id="chore-6">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(6, 5)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🖥️</span>
+                        <span>Desk</span>
+                    </div>
+                    <div class="chore-points">2</div>
+                    <select class="chore-dropdown" id="chore-7">
+                        <option value="">Choose Kid</option>
+                        <option value="asir">Asir</option>
+                        <option value="mila">Mila</option>
+                        <option value="ayham">Ayham</option>
+                    </select>
+                    <button class="done-btn" onclick="completeChore(7, 2)">Done!</button>
+
+                    <div class="chore-item">
+                        <span class="icon">🛏️</span>
+                        <span>Bed</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-8">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(8, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🚪</span>
+    <span>Corridor</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-9">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(9, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🚰</span>
+    <span>Bathroom Sink</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-10">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(10, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🛁</span>
+    <span>Bathroom Floor</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-11">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(11, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🛋️</span>
+    <span>Living Room</span>
+</div>
+<div class="chore-points">5</div>
+<select class="chore-dropdown" id="chore-12">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(12, 5)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🌇</span>
+    <span>Balcony</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-13">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(13, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🗑️</span>
+    <span>Garbage</span>
+</div>
+<div class="chore-points">3</div>
+<select class="chore-dropdown" id="chore-14">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(14, 3)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">🪴</span>
+    <span>Plant Watering</span>
+</div>
+<div class="chore-points">2</div>
+<select class="chore-dropdown" id="chore-15">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(15, 2)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">⚡</span>
+    <span>Fight</span>
+</div>
+<div class="chore-points negative-points">-1</div>
+<select class="chore-dropdown" id="chore-16">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(16, -1)">Done!</button>
+
+<div class="chore-item">
+    <span class="icon">❓</span>
+    <span>Mystery Point</span>
+</div>
+<div class="chore-points">1</div>
+<select class="chore-dropdown" id="chore-17">
+    <option value="">Choose Kid</option>
+    <option value="asir">Asir</option>
+    <option value="mila">Mila</option>
+    <option value="ayham">Ayham</option>
+</select>
+<button class="done-btn" onclick="completeChore(17, 1)">Done!</button>
+                </div>
+            </div>
+                <div class="tracking-section">
+                <h2>📊 POINT TRACKERS</h2>
+                <div class="kids-grid">
+                    <div class="kid-card">
+                        <div class="kid-name">Asir</div>
+                        <div class="points-display">___ pts</div>
+                        <div class="days-grid">
+                            <div class="day-box day-label">MON</div>
+                            <div class="day-box day-label">TUE</div>
+                            <div class="day-box day-label">WED</div>
+                            <div class="day-box day-label">THU</div>
+                            <div class="day-box day-label">FRI</div>
+                            <div class="day-box day-label">SAT</div>
+                            <div class="day-box day-label">SUN</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                        </div>
+                    </div>
+                    
+                    <div class="kid-card">
+                        <div class="kid-name">Mila</div>
+                        <div class="points-display">___ pts</div>
+                        <div class="days-grid">
+                            <div class="day-box day-label">MON</div>
+                            <div class="day-box day-label">TUE</div>
+                            <div class="day-box day-label">WED</div>
+                            <div class="day-box day-label">THU</div>
+                            <div class="day-box day-label">FRI</div>
+                            <div class="day-box day-label">SAT</div>
+                            <div class="day-box day-label">SUN</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                        </div>
+                    </div>
+                    
+                    <div class="kid-card">
+                        <div class="kid-name">Ayham</div>
+                        <div class="points-display">___ pts</div>
+                        <div class="days-grid">
+                            <div class="day-box day-label">MON</div>
+                            <div class="day-box day-label">TUE</div>
+                            <div class="day-box day-label">WED</div>
+                            <div class="day-box day-label">THU</div>
+                            <div class="day-box day-label">FRI</div>
+                            <div class="day-box day-label">SAT</div>
+                            <div class="day-box day-label">SUN</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                            <div class="day-box">___</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rewards-section">
+                <h2>🎁 AWESOME REWARDS</h2>
+                <div class="reward-item" onclick="showRewardPicker(1)">
+                    <div class="reward-text">
+                        <span class="icon">📱</span>
+                        <span>10 min extra screen time</span>
+                    </div>
+                    <div class="reward-cost">1 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(1)">
+                    <div class="reward-text">
+                        <span class="icon">💸</span>
+                        <span>5TL</span>
+                    </div>
+                    <div class="reward-cost">1 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(1)">
+                    <div class="reward-text">
+                        <span class="icon">🍭</span>
+                        <span> treat</span>
+                    </div>
+                    <div class="reward-cost">1 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(10)">
+                    <div class="reward-text">
+                        <span class="icon">🎨</span>
+                        <span>Skip one chore</span>
+                    </div>
+                    <div class="reward-cost">10 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(10)">
+                    <div class="reward-text">
+                        <span class="icon">🎪</span>
+                        <span>Skip Class</span>
+                    </div>
+                    <div class="reward-cost">10 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(15)">
+                    <div class="reward-text">
+                        <span class="icon">🍿</span>
+                        <span>Movie Night</span>
+                    </div>
+                    <div class="reward-cost">15 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(10)">
+                    <div class="reward-text">
+                        <span class="icon">🌟</span>
+                        <span>Stay up 15 min late</span>
+                    </div>
+                    <div class="reward-cost">10 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(10)">
+                    <div class="reward-text">
+                        <span class="icon">🍕</span>
+                        <span>Choose dinner menu</span>
+                    </div>
+                    <div class="reward-cost">10 pts</div>
+                </div>
+                <div class="reward-item" onclick="showRewardPicker(2)">
+                    <div class="reward-text">
+                        <span class="icon">🍦</span>
+                        <span>Ice Cream</span>
+                    </div>
+                    <div class="reward-cost">2 pts</div>
+                </div>
+                
+            </div>
+            
+        
+        </div>
+        
+        <div class="special-note">
+            <strong>🌈 Remember: Every chore completed makes our home happier and YOU more awesome! 🌈</strong>
+        </div>
+    </div>
+  
+
+    <!-- Reward picker modal -->
+<div id="rewardPickerModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:white; border-radius:20px; padding:30px; min-width:250px; text-align:center;">
+        <h3 style="color:#ff6b6b; margin-bottom:20px;">Who gets this reward?</h3>
+        <button class="reward-kid-btn" onclick="giveReward('asir')" style="margin:10px 20px;">Asir</button>
+        <button class="reward-kid-btn" onclick="giveReward('mila')" style="margin:10px 20px;">Mila</button>
+        <button class="reward-kid-btn" onclick="giveReward('ayham')" style="margin:10px 20px;">Ayham</button>
+        <br>
+        <button onclick="closeRewardPicker()" style="margin-top:20px; background:#eee; border:none; border-radius:10px; padding:8px 18px; font-weight:700; cursor:pointer;">Cancel</button>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<audio id="celebrate-audio" src="sounds/whooo.mp3" preload="auto"></audio>
+<audio id="reward-audio" src="sounds/nice.mp3" preload="auto"></audio>
+</body>
+</html>
