@@ -1,86 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@600;700;800&display=swap');
         
-        /* Base styles */
-        body {
-            font-family: 'Nunito', Arial, sans-serif;
+        * {
             margin: 0;
-            background: #f9fafc;
-            color: #222;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #fad0c4 75%, #ffd1ff 100%);
+            min-height: 100vh;
             padding: 20px;
         }
         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 5px solid #ff6b6b;
+        }
+        
         .header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d);
+            padding: 20px;
             text-align: center;
-            margin-bottom: 30px;
             position: relative;
+            overflow: hidden;
         }
         
-        .chores-section, .tracking-section, .rewards-section {
-            margin-bottom: 40px;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: shine 3s linear infinite;
         }
         
-        .chores-grid {
-            display: grid;
-            grid-template-columns: 2.5fr 0.7fr 1.2fr 1fr;
-            gap: 10px;
-            align-items: center;
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
-        .chore-header {
-            font-weight: bold;
-            background: #e3e7f1;
-            padding: 10px 0;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .chore-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.1em;
-            padding: 8px 0;
-        }
-        
-        .chore-points, .chore-dropdown, .done-btn {
-            text-align: center;
-        }
-        
-        .chore-points {
-            font-weight: bold;
-        }
-        
-        .negative-points {
-            color: #ff6b6b;
-        }
-        
-        .chore-dropdown {
-            width: 100%;
-            padding: 6px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-        
-        .done-btn {
-            background: #4ecdc4;
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5em;
             color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 7px 0;
-            font-weight: bold;
-            cursor: pointer;
-            width: 90%;
-            max-width: 100px;
-            transition: background 0.2s;
+            text-shadow: 3px 3px 0px #333;
+            margin: 0;
+            position: relative;
+            z-index: 1;
         }
         
-        .done-btn:hover {
-            background: #38b2ac;
+        .header p {
+            font-size: 1.2em;
+            color: white;
+            font-weight: 700;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
         }
         
         .content {
@@ -109,22 +98,144 @@
             text-shadow: 2px 2px 0px #333;
         }
         
-        .reward-kid-btn {
-            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
-            color: #333;
-            border: none;
+        .chores-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .chore-header {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 800;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .chore-item {
+            background: rgba(255,255,255,0.1);
+            padding: 12px 15px;
             border-radius: 12px;
-            padding: 12px 28px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .chore-item:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: #ffd93d;
+            transform: translateY(-2px);
+        }
+        
+        .chore-dropdown {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid #ffd93d;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chore-dropdown:hover {
+            background: white;
+            border-color: #ff6b6b;
+            transform: scale(1.05);
+        }
+        
+        .done-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-family: 'Nunito', sans-serif;
             font-weight: 700;
             cursor: pointer;
-            margin: 0 10px 10px 0;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
-        .reward-kid-btn:hover {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+        
+        .done-btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+        
+        .done-btn:active {
+            transform: translateY(0);
+        }
+        
+        .done-btn.completed {
+            background: #666;
+            cursor: not-allowed;
+        }
+        
+        .done-btn.completed:hover {
+            background: #666;
+            transform: none;
+        }
+        
+        .negative-points {
+            background: #ff6b6b;
             color: white;
+        }
+        
+        .rewards-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 25px;
+            color: white;
+        }
+        
+        .rewards-section h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffd93d;
+            text-shadow: 2px 2px 0px #333;
+        }
+        
+        .reward-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .reward-item:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: #ffd93d;
+            transform: translateY(-2px);
+        }
+        
+        .reward-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .reward-cost {
+            background: #ffd93d;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1.1em;
         }
         
         .tracking-section {
@@ -148,136 +259,221 @@
         
         .kids-grid {
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
         
         .kid-card {
-            background: #fff;
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 18px 16px;
-            min-width: 220px;
-            flex: 1 1 220px;
-            max-width: 320px;
-            margin-bottom: 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            border: 3px solid #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .kid-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
         .kid-name {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.3em;
-            margin-bottom: 8px;
-            color: #4ecdc4;
+            font-size: 1.8em;
+            color: #ff6b6b;
+            margin-bottom: 15px;
         }
         
         .points-display {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            font-weight: bold;
+            background: #ffd93d;
+            color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
         
         .days-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
+            gap: 8px;
+            margin-top: 15px;
         }
         
         .day-box {
-            background: #e3e7f1;
-            border-radius: 6px;
-            padding: 6px 0;
+            background: #e8f4f8;
+            padding: 8px 4px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #333;
         }
         
         .day-label {
-            background: #b2becd;
-            color: #fff;
-            font-weight: bold;
+            background: #4ecdc4;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            margin-right: 5px;
         }
         
         .special-note {
-            margin-top: 30px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
             text-align: center;
+            color: #333;
+            font-weight: 700;
             font-size: 1.1em;
-            color: #ff6b6b;
         }
         
-        /* Responsive styles */
+        /* Responsive styles for tablets and below */
         @media (max-width: 900px) {
             .container {
-                padding: 10px;
+                padding: 8px;
+            }
+            .content {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 16px;
+            }
+            .chores-section,
+            .tracking-section,
+            .rewards-section {
+                padding: 16px;
             }
             .chores-grid {
-                grid-template-columns: 2fr 0.8fr 1.2fr 1fr;
+                grid-template-columns: 2fr 1fr 1.5fr 1fr;
                 font-size: 0.98em;
+                gap: 7px;
             }
             .kids-grid {
-                gap: 10px;
+                gap: 12px;
+            }
+            .kid-card {
+                padding: 14px;
             }
         }
         
-        @media (max-width: 700px) {
-            .chores-grid {
-                grid-template-columns: 1.5fr 0.7fr 1fr;
-            }
-            .chore-header:nth-child(4),
-            .done-btn {
-                display: none;
-            }
-            .chores-grid > *:nth-child(4n) {
-                display: none;
-            }
-            .chores-grid > *:nth-child(4n-3),
-            .chores-grid > *:nth-child(4n-2),
-            .chores-grid > *:nth-child(4n-1) {
-                grid-column: span 1;
-            }
-            .reward-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-            }
-        }
-        
+        /* Responsive styles for mobile */
         @media (max-width: 600px) {
             .container {
-                padding: 3vw;
+                padding: 2vw;
+                border-width: 2.5px;
+            }
+            .header {
+                padding: 12px 4px;
+            }
+            .header h1 {
+                font-size: 1.3em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .content {
+                padding: 4vw 0;
+                gap: 10px;
+            }
+            .chores-section,
+            .tracking-section,
+            .rewards-section {
+                padding: 8px 4px;
+                border-radius: 12px;
             }
             .chores-grid {
                 grid-template-columns: 1fr;
-                gap: 6px;
-            }
-            .chore-header, .chore-item, .chore-points, .chore-dropdown, .done-btn {
-                text-align: left;
+                gap: 5px;
             }
             .chore-header {
                 display: none;
             }
+            .chore-item,
+            .chore-points,
+            .chore-dropdown,
+            .done-btn {
+                text-align: left;
+                font-size: 1em;
+                padding: 7px 0;
+            }
+            .chore-item {
+                flex-direction: row;
+                gap: 7px;
+                padding: 8px 6px;
+            }
+            .chore-points,
+            .chore-dropdown,
+            .done-btn {
+                margin-bottom: 2px;
+            }
+            .done-btn {
+                width: 100%;
+                max-width: unset;
+                padding: 8px 0;
+                font-size: 1em;
+            }
             .kids-grid {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
             .kid-card {
                 min-width: unset;
                 max-width: unset;
                 width: 100%;
+                padding: 10px 4px;
+                border-radius: 10px;
+            }
+            .kid-name {
+                font-size: 1.1em;
+            }
+            .points-display {
+                font-size: 1.1em;
+                padding: 8px;
+                border-radius: 8px;
             }
             .days-grid {
                 grid-template-columns: repeat(7, 1fr);
-                font-size: 0.9em;
+                font-size: 0.85em;
+                gap: 3px;
+                margin-top: 7px;
+            }
+            .day-box {
+                padding: 5px 0;
+                border-radius: 5px;
             }
             .reward-item {
-                padding: 10px 8px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 8px 6px;
+                border-radius: 10px;
+            }
+            .reward-cost {
+                padding: 6px 10px;
+                font-size: 1em;
+                border-radius: 12px;
             }
             .special-note {
-                font-size: 1em;
+                font-size: 0.98em;
+                padding: 10px 4px;
+                border-radius: 8px;
             }
-        }
-        
-        /* Utility for modal responsiveness */
-        #rewardPickerModal > div {
-            width: 90vw;
-            max-width: 350px;
+            #rewardPickerModal > div {
+                min-width: unset;
+                width: 96vw;
+                max-width: 340px;
+                padding: 14px 4px;
+            }
+            .reward-kid-btn {
+                font-size: 1em;
+                padding: 10px 12px;
+                border-radius: 8px;
+                margin: 0 4px 8px 0;
+            }
         }
