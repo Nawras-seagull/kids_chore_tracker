@@ -207,56 +207,105 @@ function getChorePoints(index) {
     return input ? parseInt(input.value, 10) : 0;
 }
 
-// --- Weekly Winner Logic ---
+//////7///////////////
+// Track weekly winners (now an array)
+let weeklyWinners = [];
 
-function getCurrentWeekNumber() {
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 1);
-    const diff = (now - start + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60000));
-    const oneWeek = 604800000;
-    return Math.floor(diff / oneWeek);
-}
-
-function updateWeeklyWinnerBanner() {
-    // Get weekly points from localStorage or initialize
-    let weeklyPoints = JSON.parse(localStorage.getItem('weeklyPoints')) || { asir: 0, mila: 0, ayham: 0 };
-    let maxPoints = Math.max(weeklyPoints.asir, weeklyPoints.mila, weeklyPoints.ayham);
-
-    if (maxPoints === 0) {
-        document.getElementById('weeklyWinnerBanner').style.display = 'none';
-        return;
+// Check for weekly winner and reset points
+function checkForWeeklyWinner() {
+    const thresholds = { asir: 110, mila: 70, ayham: 50 };
+    weeklyWinners = []; // Reset winners array
+    
+    // Check each kid's weekly points
+    for (const kid in thresholds) {
+        if (getWeeklyPoints(kid) >= thresholds[kid]) {
+            weeklyWinners.push(kid);
+        }
     }
-
-    let winners = [];
-    if (weeklyPoints.asir === maxPoints) winners.push('Asir');
-    if (weeklyPoints.mila === maxPoints) winners.push('Mila');
-    if (weeklyPoints.ayham === maxPoints) winners.push('Ayham');
-
-    let winnerText = winners.length === 1
-        ? `🏆 Weekly Winner: <b>${winners[0]}</b> with <b>${maxPoints}</b> points!`
-        : `🏆 Weekly Winners: <b>${winners.join(' & ')}</b> with <b>${maxPoints}</b> points!`;
-
-    document.getElementById('weeklyWinnerText').innerHTML = winnerText;
-    document.getElementById('weeklyWinnerBanner').style.display = 'flex';
-}
-
-function addPointsToWeekly(kid, points) {
-    let weeklyPoints = JSON.parse(localStorage.getItem('weeklyPoints')) || { asir: 0, mila: 0, ayham: 0 };
-    if (!weeklyPoints[kid]) weeklyPoints[kid] = 0;
-    weeklyPoints[kid] += points;
-    localStorage.setItem('weeklyPoints', JSON.stringify(weeklyPoints));
+    
+    // Save winners to localStorage
+    localStorage.setItem('weeklyWinners', JSON.stringify(weeklyWinners));
+    
+    // Reset all weekly points (days array) without affecting total points
+    for (const kid in kids) {
+        kids[kid].days = [0,0,0,0,0,0,0];
+    }
+    
+    updateDisplays();
     updateWeeklyWinnerBanner();
+    
+    // Celebrate if there are winners
+    if (weeklyWinners.length > 0) {
+        celebrateWinners();
+    }
 }
 
-function resetWeeklyPointsIfNeeded() {
-    const lastResetWeek = localStorage.getItem('lastWeeklyResetWeek');
-    const currentWeek = getCurrentWeekNumber();
-    const today = new Date();
-    // 3 = Wednesday (0=Sunday)
-    if (today.getDay() === 3 && lastResetWeek != currentWeek) {
-        // Reset weekly points
-        localStorage.setItem('weeklyPoints', JSON.stringify({ asir: 0, mila: 0, ayham: 0 }));
-        localStorage.setItem('lastWeeklyResetWeek', currentWeek);
-        updateWeeklyWinnerBanner();
+// Update the winner banner display for multiple winners
+function updateWeeklyWinnerBanner() {
+    const banner = document.getElementById('weeklyWinnerBanner');
+    const winnerText = document.getElementById('weeklyWinnerText');
+    
+    // Load saved winners if they exist
+    const savedWinners = localStorage.getItem('weeklyWinners');
+    if (savedWinners) weeklyWinners = JSON.parse(savedWinners);
+    
+    if (weeklyWinners.length > 0) {
+        banner.style.display = 'block';
+        
+        if (weeklyWinners.length === 1) {
+            const kidName = weeklyWinners[0].charAt(0).toUpperCase() + weeklyWinners[0].slice(1);
+            winnerText.innerHTML = `
+                🏆 ${kidName} IS THIS WEEK'S HERO! 🏆<br>
+                <span style="font-size:0.8em;">Super amazing job this week!</span>
+            `;
+            banner.classList.remove('multiple-winners');
+        } else {
+            const winnerNames = weeklyWinners.map(kid => 
+                `<span class="winner-icon">🏆</span>${kid.charAt(0).toUpperCase() + kid.slice(1)}<span class="winner-icon">🏆</span>`
+            ).join(' & ');
+            
+            winnerText.innerHTML = `
+                ${winnerNames}<br>
+                <span style="font-size:0.8em;">ARE THIS WEEK'S HEROES!</span><br>
+                <span style="font-size:0.7em;">Teamwork makes the dream work!</span>
+            `;
+            banner.classList.add('multiple-winners');
+        }
+    } else {
+        banner.style.display = 'none';
+        banner.classList.remove('multiple-winners');
+    }
+}
+
+// Fun celebration for winners
+function celebrateWinners() {
+    // Big confetti explosion
+    confetti({
+        particleCount: 300,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+    
+    // Play celebration sound
+    const audio = document.getElementById('celebrate-audio');
+    if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+    }
+    
+    // Special effect for multiple winners
+    if (weeklyWinners.length > 1) {
+        setTimeout(() => {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { x: 0.3, y: 0.7 }
+            });
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { x: 0.7, y: 0.7 }
+            });
+        }, 500);
     }
 }
