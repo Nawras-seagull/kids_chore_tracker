@@ -657,9 +657,13 @@
             }
     /* ---------start------ */
     .weekly-winner-banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   display: none; /* Default hidden, shown via JS */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
     background: linear-gradient(90deg, 
         #ffd93d 0%, 
         #ff6b6b 33%, 
