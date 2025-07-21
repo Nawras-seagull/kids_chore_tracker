@@ -30,209 +30,241 @@
                         <span class="icon">🍽️</span>
                         <span>Unload Dishwasher</span>
                     </div>
-                    <div class="chore-points">4</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-0" value="4" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-0">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(0, 4)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(0, getChorePoints(0))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🧹</span>
                         <span>Kitchen Floor</span>
                     </div>
-                    <div class="chore-points">5</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-1" value="5" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-1">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(1, 5)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(1, getChorePoints(1))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🧽</span>
                         <span>Kitchen Tops</span>
                     </div>
-                    <div class="chore-points">7</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-2" value="7" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-2">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(2, 7)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(2, getChorePoints(2))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🍳</span>
                         <span>Kitchen Stove</span>
                     </div>
-                    <div class="chore-points">7</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-3" value="7" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-3">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(3, 7)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(3, getChorePoints(3))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">👕</span>
                         <span>Collect Clothes</span>
                     </div>
-                    <div class="chore-points">7</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-4" value="7" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-4">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(4, 7)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(4, getChorePoints(4))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">👚</span>
                         <span>Put Out Clothes</span>
                     </div>
-                    <div class="chore-points">3</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-5" value="3" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-5">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(5, 3)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(5, getChorePoints(5))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🛏️</span>
                         <span>Kids’ Room Floor</span>
                     </div>
-                    <div class="chore-points">5</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-6" value="5" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-6">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(6, 5)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(6, getChorePoints(6))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🖥️</span>
                         <span>Desk</span>
                     </div>
-                    <div class="chore-points">2</div>
+                    <div class="chore-points">
+                        <input type="number" id="chore-points-7" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+                    </div>
                     <select class="chore-dropdown" id="chore-7">
                         <option value="">Choose Kid</option>
                         <option value="asir">Asir</option>
                         <option value="mila">Mila</option>
                         <option value="ayham">Ayham</option>
                     </select>
-                    <button class="done-btn" onclick="completeChore(7, 2)">Done!</button>
+                    <button class="done-btn" onclick="completeChore(7, getChorePoints(7))">Done!</button>
 
                     <div class="chore-item">
                         <span class="icon">🛏️</span>
                         <span>Bed</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-8" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-8">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(8, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(8, getChorePoints(8))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🚪</span>
     <span>Corridor</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-9" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-9">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(9, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(9, getChorePoints(9))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🚰</span>
     <span>Bathroom Sink</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-10" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-10">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(10, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(10, getChorePoints(10))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🛁</span>
     <span>Bathroom Floor</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-11" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-11">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(11, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(11, getChorePoints(11))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🛋️</span>
     <span>Living Room</span>
 </div>
-<div class="chore-points">5</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-12" value="5" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-12">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(12, 5)">Done!</button>
+<button class="done-btn" onclick="completeChore(12, getChorePoints(12))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🌇</span>
     <span>Balcony</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-13" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-13">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(13, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(13, getChorePoints(13))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🗑️</span>
     <span>Garbage</span>
 </div>
-<div class="chore-points">3</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-14" value="3" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-14">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(14, 3)">Done!</button>
+<button class="done-btn" onclick="completeChore(14, getChorePoints(14))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">🪴</span>
     <span>Plant Watering</span>
 </div>
-<div class="chore-points">2</div>
+<div class="chore-points">
+    <input type="number" id="chore-points-15" value="2" min="-50" max="50" style="width:40px;text-align:center;">
+</div>
 <select class="chore-dropdown" id="chore-15">
     <option value="">Choose Kid</option>
     <option value="asir">Asir</option>
     <option value="mila">Mila</option>
     <option value="ayham">Ayham</option>
 </select>
-<button class="done-btn" onclick="completeChore(15, 2)">Done!</button>
+<button class="done-btn" onclick="completeChore(15, getChorePoints(15))">Done!</button>
 
 <div class="chore-item">
     <span class="icon">⚡</span>
@@ -329,72 +361,107 @@
                 </div>
             </div>
             <div class="rewards-section">
-                <h2>🎁 AWESOME REWARDS</h2>
-                <div class="reward-item" onclick="showRewardPicker(1)">
-                    <div class="reward-text">
-                        <span class="icon">📱</span>
-                        <span>10 min extra screen time</span>
-                    </div>
-                    <div class="reward-cost">1 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(1)">
-                    <div class="reward-text">
-                        <span class="icon">💸</span>
-                        <span>5TL</span>
-                    </div>
-                    <div class="reward-cost">1 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(1)">
-                    <div class="reward-text">
-                        <span class="icon">🍭</span>
-                        <span> treat</span>
-                    </div>
-                    <div class="reward-cost">1 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(10)">
-                    <div class="reward-text">
-                        <span class="icon">🎨</span>
-                        <span>Skip one chore</span>
-                    </div>
-                    <div class="reward-cost">10 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(10)">
-                    <div class="reward-text">
-                        <span class="icon">🎪</span>
-                        <span>Skip Class</span>
-                    </div>
-                    <div class="reward-cost">10 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(15)">
-                    <div class="reward-text">
-                        <span class="icon">🍿</span>
-                        <span>Movie Night</span>
-                    </div>
-                    <div class="reward-cost">15 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(10)">
-                    <div class="reward-text">
-                        <span class="icon">🌟</span>
-                        <span>Stay up 15 min late</span>
-                    </div>
-                    <div class="reward-cost">10 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(10)">
-                    <div class="reward-text">
-                        <span class="icon">🍕</span>
-                        <span>Choose dinner menu</span>
-                    </div>
-                    <div class="reward-cost">10 pts</div>
-                </div>
-                <div class="reward-item" onclick="showRewardPicker(2)">
-                    <div class="reward-text">
-                        <span class="icon">🍦</span>
-                        <span>Ice Cream</span>
-                    </div>
-                    <div class="reward-cost">2 pts</div>
-                </div>
-                
-            </div>
+    <h2>🎁 AWESOME REWARDS</h2>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">📱</span>
+            <span>10 min extra screen time</span>
+        </div>
+        <div class="reward-cost">
+            1 pts
+            <input type="number" id="screen-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(1, 'screen-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">💸</span>
+            <span>5TL</span>
+        </div>
+        <div class="reward-cost">
+            1 pts
+            <input type="number" id="tl-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(1, 'tl-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🍭</span>
+            <span>Treat</span>
+        </div>
+        <div class="reward-cost">
+            1 pts
+            <input type="number" id="treat-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(1, 'treat-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🎨</span>
+            <span>Skip one chore</span>
+        </div>
+        <div class="reward-cost">
+            10 pts
+            <input type="number" id="skipchore-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(10, 'skipchore-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🎪</span>
+            <span>Skip Class</span>
+        </div>
+        <div class="reward-cost">
+            10 pts
+            <input type="number" id="skipclass-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(10, 'skipclass-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🍿</span>
+            <span>Movie Night</span>
+        </div>
+        <div class="reward-cost">
+            15 pts
+            <input type="number" id="movie-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(15, 'movie-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🌟</span>
+            <span>Stay up 15 min late</span>
+        </div>
+        <div class="reward-cost">
+            10 pts
+            <input type="number" id="late-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(10, 'late-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🍕</span>
+            <span>Choose dinner menu</span>
+        </div>
+        <div class="reward-cost">
+            10 pts
+            <input type="number" id="dinner-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(10, 'dinner-qty')">Cash Out</button>
+        </div>
+    </div>
+    <div class="reward-item">
+        <div class="reward-text">
+            <span class="icon">🍦</span>
+            <span>Ice Cream</span>
+        </div>
+        <div class="reward-cost">
+            2 pts
+            <input type="number" id="icecream-qty" min="1" value="1" style="width:44px; margin-left:8px; border-radius:8px; border:1.5px solid #ffd166; text-align:center;">
+            <button onclick="showRewardPicker(2, 'icecream-qty')">Cash Out</button>
+        </div>
+    </div>
+</div>
             
         
         </div>
@@ -415,6 +482,9 @@
         <br>
         <button onclick="closeRewardPicker()" style="margin-top:20px; background:#eee; border:none; border-radius:10px; padding:8px 18px; font-weight:700; cursor:pointer;">Cancel</button>
     </div>
+</div>
+<div id="weeklyWinnerBanner" class="weekly-winner-banner" style="display:none;">
+    <span id="weeklyWinnerText"></span>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <audio id="celebrate-audio" src="sounds/whooo.mp3" preload="auto"></audio>

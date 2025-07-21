@@ -227,6 +227,7 @@
             gap: 10px;
             font-size: 1.1em;
             font-weight: 600;
+            width: 40%;
         }
         
         .reward-cost {
@@ -334,6 +335,27 @@
             font-size: 1.1em;
         }
         
+        .chore-points input[type="number"] {
+            width: 48px;
+            padding: 6px 0;
+            border: 2px solid #ffd166;
+            border-radius: 8px;
+            background: #fffbea;
+            color: #333;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(255, 209, 102, 0.08);
+        }
+
+.chore-points input[type="number"]:focus {
+    border-color: #ff6b6b;
+    outline: none;
+    box-shadow: 0 0 0 2px #ff6b6b33;
+}
+        
         /* Responsive styles for tablets and below */
         @media (max-width: 900px) {
             .container {
@@ -411,7 +433,9 @@
             .chore-dropdown,
             .done-btn {
                 margin-bottom: 2px;
+                
             }
+           
             .done-btn {
                 width: 100%;
                 max-width: unset;
@@ -477,3 +501,157 @@
                 margin: 0 4px 8px 0;
             }
         }
+        
+        .reward-item button,
+        .cashout-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: #333;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 18px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.08em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 209, 102, 0.15);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            margin-left: 8px;
+            margin-top: 2px;
+            outline: none;
+        }
+
+        .reward-item button:hover,
+        .cashout-btn:hover {
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            color: #222;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.18);
+        }
+
+        .reward-item button:active,
+        .cashout-btn:active {
+            background: #ffd166;
+            color: #333;
+            transform: none;
+            box-shadow: 0 1px 4px rgba(255, 209, 102, 0.10);
+        }
+        
+        /* Modal overlay */
+        #rewardPickerModal {
+            display: none; /* default, shown via JS */
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; right: 0; bottom: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(255, 107, 107, 0.18);
+            backdrop-filter: blur(2px);
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        /* Modal content */
+        #rewardPickerModal > div {
+            background: linear-gradient(135deg, #fffbea 60%, #ffd166 100%);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.18), 0 2px 8px #ffd16677;
+            padding: 36px 32px 28px 32px;
+            min-width: 320px;
+            max-width: 95vw;
+            text-align: center;
+            position: relative;
+            animation: popup-bounce 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+
+        @keyframes popup-bounce {
+            0% { transform: scale(0.8); opacity: 0; }
+            80% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Modal header/title */
+        #rewardPickerModal h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5em;
+            color: #ff6b6b;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        /* Modal close button */
+        #rewardPickerModal .close-btn {
+            position: absolute;
+            top: 16px; right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #ff6b6b;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        #rewardPickerModal .close-btn:hover {
+            color: #333;
+        }
+
+        /* Modal reward summary */
+        #rewardPickerModal .reward-summary {
+            font-size: 1.15em;
+            color: #333;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        /* Modal kid selection buttons */
+        .reward-kid-btn {
+            background: linear-gradient(45deg, #4ecdc4, #ffd93d);
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 22px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.08em;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(76, 205, 196, 0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .reward-kid-btn:hover {
+            background: linear-gradient(45deg, #ffd93d, #4ecdc4);
+            color: #222;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 600px) {
+            #rewardPickerModal > div {
+                min-width: unset;
+                width: 96vw;
+                max-width: 340px;
+                padding: 14px 4px;
+            }
+            #rewardPickerModal h3 {
+                font-size: 1.1em;
+            }
+        }
+
+        .weekly-winner-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #ffd93d 60%, #ff6b6b 100%);
+            color: #333;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3em;
+            font-weight: 800;
+            border-radius: 18px;
+            margin: 18px 0 10px 0;
+            padding: 18px 12px;
+            box-shadow: 0 2px 12px rgba(255, 209, 102, 0.15);
+            letter-spacing: 1px;
+            min-height: 48px;
+            animation: popup-bounce 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+ .chore-points {
+               text-align: center;
+            }

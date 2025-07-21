@@ -1,4 +1,4 @@
-        // Track points for each kid
+// Track points for each kid
         const kids = {
             asir: { total: 0, days: [0,0,0,0,0,0,0] },
             mila: { total: 0, days: [0,0,0,0,0,0,0] },
@@ -40,7 +40,12 @@
             kids[kid].total += points;
             const today = getTodayIndex();
             kids[kid].days[today] += points;
+
+            // Add this line:
+            addPointsToWeekly(kid, points);
+
             updateDisplays();
+              saveKidsData();
             btn.classList.add('completed');
                confetti({
         particleCount: 80,
@@ -161,12 +166,17 @@ window.onload = function() {
     loadKidsData();
     checkAndResetChoresForNewDay();
     updateDisplays();
+    resetWeeklyPointsIfNeeded();
+    updateWeeklyWinnerBanner();
 };
 
         let rewardPointsToDeduct = 0;
+let rewardQty = 1;
 
-function showRewardPicker(points) {
-    rewardPointsToDeduct = points;
+function showRewardPicker(points, qtyInputId) {
+    const qtyInput = document.getElementById(qtyInputId);
+    rewardQty = qtyInput ? Math.max(1, parseInt(qtyInput.value, 10)) : 1;
+    rewardPointsToDeduct = points * rewardQty;
     document.getElementById('rewardPickerModal').style.display = 'flex';
 }
 
@@ -190,4 +200,63 @@ function giveReward(kid) {
     updateDisplays();
     closeRewardPicker();
     saveKidsData();
+}
+
+function getChorePoints(index) {
+    const input = document.getElementById('chore-points-' + index);
+    return input ? parseInt(input.value, 10) : 0;
+}
+
+// --- Weekly Winner Logic ---
+
+function getCurrentWeekNumber() {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 1);
+    const diff = (now - start + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60000));
+    const oneWeek = 604800000;
+    return Math.floor(diff / oneWeek);
+}
+
+function updateWeeklyWinnerBanner() {
+    // Get weekly points from localStorage or initialize
+    let weeklyPoints = JSON.parse(localStorage.getItem('weeklyPoints')) || { asir: 0, mila: 0, ayham: 0 };
+    let maxPoints = Math.max(weeklyPoints.asir, weeklyPoints.mila, weeklyPoints.ayham);
+
+    if (maxPoints === 0) {
+        document.getElementById('weeklyWinnerBanner').style.display = 'none';
+        return;
+    }
+
+    let winners = [];
+    if (weeklyPoints.asir === maxPoints) winners.push('Asir');
+    if (weeklyPoints.mila === maxPoints) winners.push('Mila');
+    if (weeklyPoints.ayham === maxPoints) winners.push('Ayham');
+
+    let winnerText = winners.length === 1
+        ? `🏆 Weekly Winner: <b>${winners[0]}</b> with <b>${maxPoints}</b> points!`
+        : `🏆 Weekly Winners: <b>${winners.join(' & ')}</b> with <b>${maxPoints}</b> points!`;
+
+    document.getElementById('weeklyWinnerText').innerHTML = winnerText;
+    document.getElementById('weeklyWinnerBanner').style.display = 'flex';
+}
+
+function addPointsToWeekly(kid, points) {
+    let weeklyPoints = JSON.parse(localStorage.getItem('weeklyPoints')) || { asir: 0, mila: 0, ayham: 0 };
+    if (!weeklyPoints[kid]) weeklyPoints[kid] = 0;
+    weeklyPoints[kid] += points;
+    localStorage.setItem('weeklyPoints', JSON.stringify(weeklyPoints));
+    updateWeeklyWinnerBanner();
+}
+
+function resetWeeklyPointsIfNeeded() {
+    const lastResetWeek = localStorage.getItem('lastWeeklyResetWeek');
+    const currentWeek = getCurrentWeekNumber();
+    const today = new Date();
+    // 3 = Wednesday (0=Sunday)
+    if (today.getDay() === 3 && lastResetWeek != currentWeek) {
+        // Reset weekly points
+        localStorage.setItem('weeklyPoints', JSON.stringify({ asir: 0, mila: 0, ayham: 0 }));
+        localStorage.setItem('lastWeeklyResetWeek', currentWeek);
+        updateWeeklyWinnerBanner();
+    }
 }
