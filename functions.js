@@ -210,7 +210,10 @@ function getChorePoints(index) {
 //////7///////////////
 // Track weekly winners (now an array)
 let weeklyWinners = [];
-
+// Calculate sum of points for the current week (days array)
+function getWeeklyPoints(kid) {
+    return kids[kid].days.reduce((sum, pts) => sum + pts, 0);
+}
 // Check for weekly winner and reset points
 function checkForWeeklyWinner() {
     const thresholds = { asir: 110, mila: 70, ayham: 50 };
