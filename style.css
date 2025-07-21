@@ -655,7 +655,7 @@
  .chore-points {
                text-align: center;
             }
-    /* --------------- */
+    /* ---------start------ */
     .weekly-winner-banner {
     display: flex;
     align-items: center;
@@ -715,4 +715,16 @@
 @keyframes bounce {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
+}
+
+    /* ---------end------ */
+        
+        .week-summary {
+    margin-top: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.08em;
+    color: #ff6b6b;
+    font-weight: 700;
+    text-align: right;
+    letter-spacing: 0.5px;
 }

@@ -26,6 +26,8 @@
                 });
             });
             saveKidsData();
+                updateWeeklySummaries();
+
         }
 
         function completeChore(choreIdx, points) {
@@ -41,8 +43,7 @@
             const today = getTodayIndex();
             kids[kid].days[today] += points;
 
-            // Add this line:
-            addPointsToWeekly(kid, points);
+
 
             updateDisplays();
               saveKidsData();
@@ -166,8 +167,7 @@ window.onload = function() {
     loadKidsData();
     checkAndResetChoresForNewDay();
     updateDisplays();
-    resetWeeklyPointsIfNeeded();
-    updateWeeklyWinnerBanner();
+
 };
 
         let rewardPointsToDeduct = 0;
@@ -307,5 +307,19 @@ function celebrateWinners() {
                 origin: { x: 0.7, y: 0.7 }
             });
         }, 500);
+    }
+}
+//////7///////////////
+// End of Track weekly winners
+function updateWeeklySummaries() {
+    // Set your thresholds here
+    const thresholds = { asir: 110, mila: 70, ayham: 50 };
+    for (const kid in thresholds) {
+        // Sum the kid's days array for the week
+        const weekSum = kids[kid].days.reduce((a, b) => a + b, 0);
+        const el = document.getElementById('week-summary-' + kid);
+        if (el) {
+            el.textContent = `This week: ${weekSum} / ${thresholds[kid]}`;
+        }
     }
 }
