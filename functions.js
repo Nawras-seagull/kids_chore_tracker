@@ -106,8 +106,8 @@ function renderTrackers() {
 
 // Track points for each kid
 const kidsData = {
-    asir: { total: 32, days: [0,0,0,0,0,0,0] },
-    mila: { total: 63, days: [0,0,0,0,0,0,0] },
+    asir: { total: 0, days: [0,0,0,0,0,0,0] },
+    mila: { total: 0, days: [0,0,0,0,0,0,0] },
     ayham: { total: 0, days: [0,0,0,0,0,0,0] },
     nawras: { total: 0, days: [0,0,0,0,0,0,0] } // Added Nawras
 };
