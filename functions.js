@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     renderChores();
     renderTrackers();
     renderRewards();
-    saveKidsData();
   
 });
 
@@ -317,7 +316,12 @@ function giveReward(kid) {
 
 function getChorePoints(index) {
     const input = document.getElementById('chore-points-' + index);
-    return input ? parseInt(input.value, 10) : 0;
+    if (input) {
+        return parseInt(input.value, 10);
+    } else {
+        // For static points (Mystery Point or Fight), use the defaultPoints from chores array
+        return chores[index].defaultPoints;
+    }
 }
 
 //////7///////////////
