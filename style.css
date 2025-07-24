@@ -732,3 +732,21 @@
     text-align: right;
     letter-spacing: 0.5px;
 }
+@media (max-width: 600px) {
+    .weekly-winner-banner {
+        font-size: 1.1em;
+        padding: 10px 5px;
+    }
+    .header {
+        margin-top: 50px;
+    }
+}
+
+#weeklyWinnerBanner {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#weeklyWinnerBanner:hover {
+    transform: scale(1.02);
+}
